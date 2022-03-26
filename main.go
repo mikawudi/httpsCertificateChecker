@@ -125,7 +125,7 @@ func main() {
 			log.Println(err.Error())
 			continue
 		}
-		message := "证书:" + certDomainName + " 剩余:" + strconv.FormatInt(int64(day), 10) + "过期, 请准备好更新工作"
+		message := "证书:" + certDomainName + " 剩余:" + strconv.FormatInt(int64(day), 10) + "天过期, 请准备好更新工作 (当前告警阈值:" + strconv.FormatInt(int64(dayofnotice), 10) + "天)"
 		log.Println(message)
 		if day < dayofnotice {
 			sendToWx(message, wxtoken)
